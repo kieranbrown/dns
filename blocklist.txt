@@ -1,2 +1,23 @@
-api.segment.io
-google.com
+# Block Amazon Updates
+updates.amazon.com
+amzdigitaldownloads.edgesuite.net
+amzdigital-a.akamaihd.net
+d1s31zyz7dcc2d.cloudfront.net
+softwareupdates.amazon.com
+
+# Block Apple Updates
+axm-app.apple.com
+comm-main.ess.apple.com
+comm-cohort.ess.apple.com
+gdmf.apple.com
+# Siri seems to break on iOS 18 if guzzoni is unreachable
+!guzzoni-apple-com.v.aaplimg.com
+mesu.apple.com
+
+# Block LG Updates
+nsu.lge.com
+su-dev.lge.com
+snu-dev.lge.com
+su-ssl.lge.com
+su.lge.com
+snu.lge.com

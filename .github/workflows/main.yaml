@@ -44,6 +44,7 @@ jobs:
         env:
           BLOCKLIST_URLS: |
             ${{ github.server_url }}/${{ github.repository }}/raw/${{ github.sha }}/blocklist.txt
+            https://big.oisd.nl
 
       - name: Delete old rules and lists
         run: npm run cloudflare-delete
