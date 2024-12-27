@@ -23,7 +23,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: mrrfv/cloudflare-gateway-pihole-scripts
-          ref: v1
+          ref: refs/pull/144/merge # testing https://github.com/mrrfv/cloudflare-gateway-pihole-scripts/pull/144
+          # ref: v1
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -46,12 +47,14 @@ jobs:
             ${{ github.server_url }}/${{ github.repository }}/raw/${{ github.sha }}/blocklist.txt
             https://big.oisd.nl
 
-      - name: Delete old rules and lists
-        run: npm run cloudflare-delete
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      # commented while testing https://github.com/mrrfv/cloudflare-gateway-pihole-scripts/pull/144
+
+      # - name: Delete old rules and lists
+      #   run: npm run cloudflare-delete
+      #   env:
+      #     CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      #     CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      #     DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
 
       - name: Create new rules and lists
         run: npm run cloudflare-create
