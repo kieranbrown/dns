@@ -45,7 +45,8 @@ jobs:
         env:
           BLOCKLIST_URLS: |
             ${{ github.server_url }}/${{ github.repository }}/raw/${{ github.sha }}/blocklist.txt
-            https://big.oisd.nl
+            https://small.oisd.nl
+            https://adaway.org/hosts.txt
 
       # commented while testing https://github.com/mrrfv/cloudflare-gateway-pihole-scripts/pull/144
 
