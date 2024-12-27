@@ -29,8 +29,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: mrrfv/cloudflare-gateway-pihole-scripts
-          ref: refs/pull/144/merge # testing https://github.com/mrrfv/cloudflare-gateway-pihole-scripts/pull/144
-          # ref: v1
+          # testing https://github.com/mrrfv/cloudflare-gateway-pihole-scripts/pull/144
+          # PR#144 fails when no lists are currently present
+          ref: ${{ inputs.fresh && 'v1' || 'refs/pull/144/merge' }}
 
       - name: Install Node.js
         uses: actions/setup-node@v4
