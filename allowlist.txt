@@ -2,3 +2,4 @@
 # Domains in here are always resolvable, even if it appears in a CGPS list
 
 www.googleadservices.com
+googleadservices.com
