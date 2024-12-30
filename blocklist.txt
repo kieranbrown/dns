@@ -1,3 +1,5 @@
+# Custom blocklist
+
 # Block Amazon Updates
 updates.amazon.com
 amzdigitaldownloads.edgesuite.net

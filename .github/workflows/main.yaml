@@ -22,6 +22,40 @@ env:
   NODE_ENV: production
 
 jobs:
+  custom:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get blocklist
+        id: blocklist
+        run: |
+          response=$(curl -sf "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/gateway/lists" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json")
+
+          list_json=$(echo "$response" | jq -c '.result[] | select(.name=="Custom Blocklist")')
+
+          if [ -z "$list_json" ]; then
+            echo "List could not be found"
+            exit 1
+          fi
+
+          echo "json=$list_json" | tee -a "$GITHUB_OUTPUT"
+
+      - name: Update blocklist
+        run: |
+          LIST_ITEMS="$(grep -v '^[#!]' blocklist.txt | jq -Rsc 'split("\n") | map(select(length > 0)) | map({value: .})')"
+          UPDATED_LIST="$(echo ${{ toJson(steps.blocklist.outputs.json) }} | jq --argjson items "$LIST_ITEMS" '.items = $items')"
+          echo "UPDATED_LIST"
+          LIST_ID="$(echo "$UPDATED_LIST" | jq -r '.id')"
+          curl -sf -X PUT "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/gateway/lists/$LIST_ID" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data-raw "$UPDATED_LIST" \
+            -w "HTTP Status: %{http_code}"
+
   cgps:
     runs-on: ubuntu-latest
     steps:
