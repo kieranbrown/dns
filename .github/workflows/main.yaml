@@ -64,8 +64,7 @@ jobs:
         with:
           repository: mrrfv/cloudflare-gateway-pihole-scripts
           # testing https://github.com/mrrfv/cloudflare-gateway-pihole-scripts/pull/144
-          # PR#144 fails when no lists are currently present
-          ref: ${{ inputs.fresh && 'v1' || 'refs/pull/144/merge' }}
+          ref: refs/pull/144/merge
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -87,7 +86,6 @@ jobs:
           BLOCKLIST_URLS: |
             ${{ github.server_url }}/${{ github.repository }}/raw/${{ github.sha }}/blocklist.txt
             https://small.oisd.nl
-            https://adaway.org/hosts.txt
 
       - name: Delete old rules and lists
         if: inputs.fresh
