@@ -85,7 +85,7 @@ jobs:
           BLOCKLIST_URLS: |
             ${{ github.server_url }}/${{ github.repository }}/raw/${{ github.sha }}/blocklist.txt
             https://github.com/hagezi/dns-blocklists/raw/main/wildcard/doh-vpn-proxy-bypass-onlydomains.txt
-            https://github.com/hagezi/dns-blocklists/raw/main/wildcard/light-onlydomains.txt
+            https://github.com/hagezi/dns-blocklists/raw/main/wildcard/pro-onlydomains.txt
 
       - name: Delete old rules and lists
         if: inputs.fresh
