@@ -86,6 +86,7 @@ jobs:
           BLOCKLIST_URLS: |
             ${{ github.server_url }}/${{ github.repository }}/raw/${{ github.sha }}/blocklist.txt
             https://small.oisd.nl
+            https://github.com/hagezi/dns-blocklists/raw/main/adblock/doh-vpn-proxy-bypass.txt
 
       - name: Delete old rules and lists
         if: inputs.fresh
