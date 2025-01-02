@@ -12,8 +12,7 @@ axm-app.apple.com
 comm-main.ess.apple.com
 comm-cohort.ess.apple.com
 gdmf.apple.com
-# Siri seems to break on iOS 18 if guzzoni is unreachable
-!guzzoni-apple-com.v.aaplimg.com
+guzzoni-apple-com.v.aaplimg.com
 mesu.apple.com
 
 # Block LG Updates
