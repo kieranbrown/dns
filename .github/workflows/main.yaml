@@ -35,7 +35,7 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
             -H "Content-Type: application/json")
 
-          list_json=$(echo "$response" | jq -c '.result[] | select(.name=="Custom Blocklist")')
+          list_json=$(echo "$response" | jq -c '.result[] | select(.name=="Blocklist")')
 
           if [ -z "$list_json" ]; then
             echo "List could not be found"
