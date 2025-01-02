@@ -80,6 +80,11 @@ jobs:
           ALLOWLIST_URLS: |
             ${{ github.server_url }}/${{ github.repository }}/raw/${{ github.sha }}/allowlist.txt
 
+      - name: Add secret domains to allowlist
+        run: |
+          echo "${{ secrets.CLOUDFLARE_GATEWAY_DOH_SUBDOMAIN }}.cloudflare-gateway.com" >> allowlist.txt
+          echo "${{ secrets.CLOUDFLARE_LOCATION_DOH_SUBDOMAIN }}.cloudflare-gateway.com" >> allowlist.txt
+
       - name: Download blocklists
         run: npm run download:blocklist
         env:
