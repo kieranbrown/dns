@@ -48,7 +48,6 @@ jobs:
         run: |
           LIST_ITEMS="$(grep -v '^[#!]' blocklist.txt | jq -Rsc 'split("\n") | map(select(length > 0)) | map({value: .})')"
           UPDATED_LIST="$(echo ${{ toJson(steps.blocklist.outputs.json) }} | jq --argjson items "$LIST_ITEMS" '.items = $items')"
-          echo "UPDATED_LIST"
           LIST_ID="$(echo "$UPDATED_LIST" | jq -r '.id')"
           curl -sf -X PUT "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/gateway/lists/$LIST_ID" \
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
@@ -85,8 +84,8 @@ jobs:
         env:
           BLOCKLIST_URLS: |
             ${{ github.server_url }}/${{ github.repository }}/raw/${{ github.sha }}/blocklist.txt
-            https://small.oisd.nl
             https://github.com/hagezi/dns-blocklists/raw/main/adblock/doh-vpn-proxy-bypass.txt
+            https://small.oisd.nl
 
       - name: Delete old rules and lists
         if: inputs.fresh
