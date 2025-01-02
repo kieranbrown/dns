@@ -1,4 +1,2 @@
 # Custom allowlist
 # Domains in here are always resolvable, even if it appears in a CGPS list
-
-api.cloudflareclient.com
