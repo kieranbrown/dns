@@ -15,6 +15,10 @@ gdmf.apple.com
 guzzoni-apple-com.v.aaplimg.com
 mesu.apple.com
 
+# Block iCloud Private Relay
+mask.icloud.com
+mask-h2.icloud.com
+
 # Block LG Updates
 nsu.lge.com
 su-dev.lge.com
