@@ -2,5 +2,6 @@
 # Domains in here are always resolvable, even if it appears in a CGPS list
 
 clk.omgt1.com
+sentry.io
 tailscale.com
 track.omguk.com
