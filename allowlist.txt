@@ -4,5 +4,6 @@
 amplitude.com
 clk.omgt1.com
 sentry.io
+sentry-cdn.com
 tailscale.com
 track.omguk.com
