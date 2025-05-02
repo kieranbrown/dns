@@ -3,7 +3,7 @@
 
 amplitude.com
 clk.omgt1.com
-recs.richrelevance.com
+richrelevance.com
 sentry.io
 sentry-cdn.com
 tailscale.com
