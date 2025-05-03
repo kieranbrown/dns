@@ -1,11 +1,6 @@
 # Custom allowlist
 # Domains in here are always resolvable, even if it appears in a CGPS list
 
-amplitude.com
-clk.omgt1.com
-omguk.com
-richrelevance.com
 sentry.io
-sentry-cdn.com
 tailscale.com
 track.omguk.com
