@@ -4,6 +4,7 @@
 # Loading the Sentry UI fails without allowing s1.sentry-cdn.com
 s1.sentry-cdn.com
 
+clk.omgt1.com
 sentry.io
 tailscale.com
 track.omguk.com
