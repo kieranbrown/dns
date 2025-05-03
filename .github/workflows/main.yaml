@@ -28,6 +28,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Get allowlist
+        id: allowlist
+        run: |
+          response=$(curl -sf "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/gateway/lists" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json")
+
+          list_json=$(echo "$response" | jq -c '.result[] | select(.name=="Allowlist")')
+
+          if [ -z "$list_json" ]; then
+            echo "List could not be found"
+            exit 1
+          fi
+
+          echo "json=$list_json" | tee -a "$GITHUB_OUTPUT"
+
       - name: Get blocklist
         id: blocklist
         run: |
@@ -43,6 +59,17 @@ jobs:
           fi
 
           echo "json=$list_json" | tee -a "$GITHUB_OUTPUT"
+
+      - name: Update allowlist
+        run: |
+          LIST_ITEMS="$(grep -v '^[#!]' allowlist.txt | jq -Rsc 'split("\n") | map(select(length > 0)) | map({value: .})')"
+          UPDATED_LIST="$(echo ${{ toJson(steps.allowlist.outputs.json) }} | jq --argjson items "$LIST_ITEMS" '.items = $items')"
+          LIST_ID="$(echo "$UPDATED_LIST" | jq -r '.id')"
+          curl -sf -X PUT "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/gateway/lists/$LIST_ID" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data-raw "$UPDATED_LIST" \
+            -w "HTTP Status: %{http_code}"
 
       - name: Update blocklist
         run: |
