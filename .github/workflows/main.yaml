@@ -23,10 +23,10 @@ env:
 
 jobs:
   custom:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Get allowlist
         id: allowlist
@@ -83,17 +83,17 @@ jobs:
             -w "HTTP Status: %{http_code}"
 
   cgps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           repository: mrrfv/cloudflare-gateway-pihole-scripts
           # testing https://github.com/mrrfv/cloudflare-gateway-pihole-scripts/pull/144
           ref: refs/pull/144/merge
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version-file: .node-version
 
@@ -130,10 +130,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
 
-  keepalive:
-    if: github.event_name == 'schedule'
-    runs-on: ubuntu-latest
+  workflow-keepalive:
+    uses: kieranbrown/github-actions/.github/workflows/workflow-keepalive.yaml@v1
     permissions:
       actions: write
-    steps:
-      - uses: liskin/gh-workflow-keepalive@v1
