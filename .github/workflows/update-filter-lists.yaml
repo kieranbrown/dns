@@ -8,7 +8,7 @@ on:
         description: Force re-create all lists and rules
         type: boolean
         default: false
-  schedule:
+  schedule: ## 3am every day
     - cron: "0 3 * * *"
   push:
     branches:
