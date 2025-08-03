@@ -1,6 +1,9 @@
 # Custom allowlist
 # Domains in here are always resolvable, even if it appears in a CGPS list
 
+# Breaks Bluelight
+amplitude.com
+
 # Loading the Sentry UI fails without allowing s1.sentry-cdn.com
 s1.sentry-cdn.com
 
