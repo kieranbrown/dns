@@ -13,7 +13,7 @@ comm-main.ess.apple.com
 comm-cohort.ess.apple.com
 gdmf.apple.com
 guzzoni-apple-com.v.aaplimg.com
-# mesu.apple.com
+mesu.apple.com
 
 # Block iCloud Private Relay
 mask.icloud.com
