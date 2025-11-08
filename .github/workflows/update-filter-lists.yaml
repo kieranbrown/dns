@@ -95,8 +95,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           repository: mrrfv/cloudflare-gateway-pihole-scripts
-          # testing https://github.com/mrrfv/cloudflare-gateway-pihole-scripts/pull/144
-          ref: refs/pull/144/merge
+          ref: b1a8babc0223ffec1aab0d5757079d5e4fdb4a28
 
       - name: Install Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
