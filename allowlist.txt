@@ -13,3 +13,6 @@ ngrok.com
 sentry.io
 tailscale.com
 track.omguk.com
+
+# Breaks Hellofresh App
+api.statsigcdn.com
