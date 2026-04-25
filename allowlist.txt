@@ -17,4 +17,4 @@ track.omguk.com
 
 # Breaks Hellofresh App
 api.statsigcdn.com
-events.statsigapi.net
+# events.statsigapi.net
