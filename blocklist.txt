@@ -8,12 +8,12 @@ d1s31zyz7dcc2d.cloudfront.net
 softwareupdates.amazon.com
 
 # Block Apple Updates
-# axm-app.apple.com
-# comm-main.ess.apple.com
-# comm-cohort.ess.apple.com
-# gdmf.apple.com
-# guzzoni-apple-com.v.aaplimg.com
-# mesu.apple.com
+axm-app.apple.com
+comm-main.ess.apple.com
+comm-cohort.ess.apple.com
+gdmf.apple.com
+guzzoni-apple-com.v.aaplimg.com
+mesu.apple.com
 
 # Block iCloud Private Relay
 mask.icloud.com
