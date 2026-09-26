@@ -4,6 +4,9 @@
 # Breaks Bluelight
 amplitude.com
 
+# Breaks HealthServiceDiscounts
+recs.richrelevance.com
+
 # Loading the Sentry UI fails without allowing s1.sentry-cdn.com
 s1.sentry-cdn.com
 
