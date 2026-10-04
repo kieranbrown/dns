@@ -10,6 +10,9 @@ recs.richrelevance.com
 # Loading the Sentry UI fails without allowing s1.sentry-cdn.com
 s1.sentry-cdn.com
 
+# Some sites use this for refer a friend affiliate links
+www.aklamio.com
+
 bugsnag.com
 clk.omgt1.com
 ngrok.com
