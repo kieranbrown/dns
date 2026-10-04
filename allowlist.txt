@@ -11,6 +11,7 @@ recs.richrelevance.com
 s1.sentry-cdn.com
 
 # Some sites use this for refer a friend affiliate links
+contentful.aklamio.com
 follow.aklamio.com
 www.aklamio.com
 api.aklamio.com
