@@ -16,10 +16,10 @@ follow.aklamio.com
 www.aklamio.com
 api.aklamio.com
 
+bttn.io
 bugsnag.com
 clk.omgt1.com
 ngrok.com
-r.bttn.io
 sentry.io
 tailscale.com
 track.omguk.com
